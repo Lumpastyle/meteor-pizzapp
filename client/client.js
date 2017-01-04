@@ -1,6 +1,6 @@
 import { Session } from 'meteor/session';
 
-Session.set( "pizza_id", "0" )
+Session.set( "pizza_id", "0" );
 
 
 FlowRouter.route('/', {
@@ -66,7 +66,11 @@ Template.pizza_view.events ({
         var $ingredients = template.find( "#ingredients" );
         var $price = template.find( "#price" );
 
-        if ( $name.value !== "" && $src.value !== "" && $ingredients !== "" && $price.value !== "")
+        if( $src.value == "" ) {
+            $src = "https://cdn-catalog.pizzahut.fr/images/fr/20150511174125092.jpg";
+        }
+
+        if ( $name.value !== "" && $src !== "" && $ingredients !== "" && $price.value !== "")
         {
             pizza.insert( {name : $name.value, src : $src.value, ingredients : $ingredients.value , price : $price.value} );
         }

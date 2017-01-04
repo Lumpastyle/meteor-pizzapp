@@ -10,33 +10,36 @@
     <h1>Pizzapp</h1>
 
 
-    <div id="block_form" class="form">
-        <div class="form_menu">
+    <div id="block_form" class="container-fluid">
+        <div class="form_menu container">
             <h2>Ajouter une pizza</h2>
-            <input id="name" type="text" placeholder="Nom"/>
-            <input id="src" type="text" placeholder="Lien de l'image"/>
-            <input id="ingredients" type="text" placeholder="Ingrédients"/>
-            <input id="price" type="text" placeholder="Prix"/>
-            <button id="submit_pizza">Nouvelle pizza</button>
+            <div class="col-xs-0 col-md-2"></div>
+            <input id="name" type="text" class="col-md-2" placeholder="Nom"/>
+            <input id="src" type="text" class="col-md-2" placeholder="Lien de l'image"/>
+            <input id="ingredients" type="text" class="col-md-2" placeholder="Ingrédients"/>
+            <input id="price" type="text" class="col-md-2" placeholder="Prix"/>
         </div>
+        <button id="submit_pizza" class="col-xs-0 col-md-2">Nouvelle pizza</button>
     </div>
 
     <h2>Nos pizzas</h2>
 
-    <div class="content">
+    <div class="container">
         <ul class="listP">
             {{#each all_pizzas}}
-            <li class="card">
-                <div class="content_card">
-                    <div><img src="{{ src }}" alt=""></div>
-                    <div class="infoP">
-                        <h3>{{ name }}</h3>
-                        <div class="price">{{ price }} €</div>
-                        <p>{{ ingredients }}</p>
+            <li class="col-xs-6 col-sm-4 col-md-3">
+                <div class="card">
+                    <div class="content_card">
+                        <div><img src="{{ src }}" alt=""></div>
+                        <div class="infoP">
+                            <h3>{{ name }}</h3>
+                            <div class="price">{{ price }} €</div>
+                            <p>{{ ingredients }}</p>
+                        </div>
                     </div>
                 </div>
-                <button class="delete-btn">Supprimer</button>
-                <button class="edit-btn">Modifier</button>
+                <button class="delete-btn col-xs-6">Supprimer</button>
+                <button class="edit-btn col-xs-6">Modifier</button>
             </li>
             {{/each}}
         </ul>
@@ -51,28 +54,34 @@
         <button class="home-btn">Retour</button>
         <h2>Modifier la pizza</h2>
 
-        <div class="cardSolo">
-            <li class="card">
-                <div class="content_card">
-                    <div><img src="{{pizza.src}}" alt=""></div>
-                    <div class="infoP">
-                        <h3>{{pizza.name}}</h3>
-                        <div class="price">{{pizza.price}} €</div>
-                        <p>{{pizza.ingredients}}</p>
+        <div class="container">
+            <div class="cardSolo col-xs-3">
+                <div class="card">
+                    <div class="content_card">
+                        <div><img src="{{pizza.src}}" alt=""></div>
+                        <div class="infoP">
+                            <h3>{{pizza.name}}</h3>
+                            <div class="price">{{pizza.price}} €</div>
+                            <p>{{pizza.ingredients}}</p>
+                        </div>
                     </div>
                 </div>
-            </li>
-        </div>
-
-
-            <div id="edit_form">
-                <div class="form_menu">
-                    <input id="name" type="text" value="{{pizza.name}}" />
-                    <input id="src" type="text" value="{{pizza.src}}"/>
-                    <input id="ingredients" type="text" value="{{pizza.ingredients}}"/>
-                    <input id="price" type="text" value="{{pizza.price}}"/>
-                    <button class="send-btn">Envoyer</button>
-                </div>
             </div>
+
+
+            <div id="edit_form" class="col-xs-9">
+                <div class="form_menu">
+                    <label for="name">Nom</label>
+                    <input id="name" type="text" value="{{pizza.name}}" />
+                    <label for="src">Lien</label>
+                    <input id="src" type="text" value="{{pizza.src}}"/>
+                    <label for="ingredients">Ingrédients</label>
+                    <input id="ingredients" type="text" value="{{pizza.ingredients}}"/>
+                    <label for="price">Prix</label>
+                    <input id="price" type="text" value="{{pizza.price}}"/>
+                </div>
+                    <button class="send-btn">Envoyer</button>
+            </div>
+        </div>
     </div>
 </template>

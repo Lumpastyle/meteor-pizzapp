@@ -1,0 +1,78 @@
+<head>
+    <title>Pizzapp</title>
+</head>
+
+<body>
+
+</body>
+
+<template name="pizza_view">
+    <h1>Pizzapp</h1>
+
+
+    <div id="block_form" class="form">
+        <div class="form_menu">
+            <h2>Ajouter une pizza</h2>
+            <input id="name" type="text" placeholder="Nom"/>
+            <input id="src" type="text" placeholder="Lien de l'image"/>
+            <input id="ingredients" type="text" placeholder="Ingrédients"/>
+            <input id="price" type="text" placeholder="Prix"/>
+            <button id="submit_pizza">Nouvelle pizza</button>
+        </div>
+    </div>
+
+    <h2>Nos pizzas</h2>
+
+    <div class="content">
+        <ul class="listP">
+            {{#each all_pizzas}}
+            <li class="card">
+                <div class="content_card">
+                    <div><img src="{{ src }}" alt=""></div>
+                    <div class="infoP">
+                        <h3>{{ name }}</h3>
+                        <div class="price">{{ price }} €</div>
+                        <p>{{ ingredients }}</p>
+                    </div>
+                </div>
+                <button class="delete-btn">Supprimer</button>
+                <button class="edit-btn">Modifier</button>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+</template>
+
+<template name="edit_pizza">
+    <h1>Pizzapp</h1>
+
+    <div class="edit content">
+        <button class="home-btn">Retour</button>
+        <h2>Modifier la pizza</h2>
+
+        <div class="cardSolo">
+            <li class="card">
+                <div class="content_card">
+                    <div><img src="{{pizza.src}}" alt=""></div>
+                    <div class="infoP">
+                        <h3>{{pizza.name}}</h3>
+                        <div class="price">{{pizza.price}} €</div>
+                        <p>{{pizza.ingredients}}</p>
+                    </div>
+                </div>
+            </li>
+        </div>
+
+
+            <div id="edit_form">
+                <div class="form_menu">
+                    <input id="name" type="text" value="{{pizza.name}}" />
+                    <input id="src" type="text" value="{{pizza.src}}"/>
+                    <input id="ingredients" type="text" value="{{pizza.ingredients}}"/>
+                    <input id="price" type="text" value="{{pizza.price}}"/>
+                    <button class="send-btn">Envoyer</button>
+                </div>
+            </div>
+    </div>
+</template>

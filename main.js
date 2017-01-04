@@ -1,0 +1,1 @@
+pizza = new Mongo.Collection( "pizza" );

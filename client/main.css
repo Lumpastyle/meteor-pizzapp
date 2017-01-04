@@ -168,3 +168,6 @@ input {
     background-color: lightskyblue;
     cursor: pointer;
 }
+.test {
+    background: #000;
+}
